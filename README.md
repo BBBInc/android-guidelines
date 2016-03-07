@@ -38,15 +38,46 @@ com.bbbtech.project
 
 `MainActivity`, `LoginFragment`, `AuthAlertDialog`, `ProtocolConnectionService`
 
-#### 리소스 파일
-리소스 파일명은 lower_underscore를 사용합니다.
+#### Resource 파일
+Resource 파일명은 lower_underscore를 사용합니다.
+
+##### Drawable 파일
 
 |Asset Type|Prefix|Example|
 |----------|------|-------|
 |Icons|`ic_`|`ic_launcher.png`|
 |Images|`img`|`img_man_logo`|
 
+##### Layout 파일
+Layout 파일명은 관련된 Component로 시작합니다.
+
+|Component|Example Class Name|Example File Name|
+|---------|------------------|-----------------|
+|Activity|`MainActivity`|`activity_main.xml`|
+|Fragement|`ProgressFragment`|`fragment_progress.xml`|
+
+##### Menu 파일
+menu 파일은 menu 폴더 내에 위치하기 때문에 별도의 prefix 없이 사용되는 Component를 앞으로 보냅니다.
+
+|Example Activity Name|Example File Name|
+|---------------------|-----------------|
+|`MainActivity`|`activity_main.xml`|
+
+##### Values 파일
+Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합니다.
+
+`strings.xml`, `colors.xml`, `dimens.xml`, `ui_colors.xml`
+
+
 ## 코드 가이드라인
+
+### Java 언어 규칙
+
+#### Don’t Ignore Exceptions
+
+#### Don't catch generic exception
+
+#### Don't use finalizers
 
 ### 네이밍
 
@@ -87,7 +118,7 @@ day = (3 + numberOfDays) % 7;
 
 #### 약어
 
-- 약어는 항상 대문자로 표시합니다.
+- 약어는 항상 대문자로 표시합니다. (논의 필요)
 
 **좋은 예**
 
