@@ -84,7 +84,9 @@ Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합�
 #### 변수
 
 - 변수 이름은 lowerCamelCase를 사용합니다.
-- 멤버 변수 이름에 접두사<sup>Prefix</sup> `m-` 을 붙이지 않습니다.
+- 멤버 변수 이름에 접두사<sup>Prefix</sup> `m` 을 붙입니다.
+- AndroidStudio에서 Preferences를 통해 Getter/Setter 생성 시에도 m이 처리 되도록 구현 할 수있습니다.
+![Image of HowToSetPrefix](https://octodex.github.com/images/yaktocat.png)
 
 #### 상수
 
