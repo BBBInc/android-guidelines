@@ -7,6 +7,7 @@
   - [패키지 아키텍쳐](#패키지-아키텍쳐)
   - [파일 네이밍](#파일-네이밍)
 - [코드 가이드라인](#코드-가이드라인)
+  - [코드 레이아웃](#코드-레이아웃)
   - [네이밍](#네이밍)
 
 
@@ -82,10 +83,98 @@ Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합�
 
 #### Don't use finalizers
 
+### 코드 레이아웃
+
+#### Local 변수
+- Local 변수는 메서드 내에서 사용 되기 직전에 선언합니다.
+단, 코드 구조 상 직전에 선언이 어렵다면 메서드 초반에 선언해도 무방합니다.
+
+#### 최대 줄 길이
+- 한줄은 최대 120자를 넘지 않도록 합니다.
+- AndroidStudio에서 Preferences를 통해 가로 가이드를 조절 할 수 있습니다.
+![Image of HowToSetHorizontalGuilde](https://github.com/BBBInc/android-style-guide/blob/master/Screenshots/howToSetHorizontalGuide.png)
+
+#### 빈 줄
+- 빈 줄에는 공백(빈칸)이 포함되지 않도록 합니다.
+- 모든 파일은 빈 줄로 끝나도록 합니다.
+- Local 변수는 선언 시 위, 아래로 1줄의 공백을 넣습니다.
+
+``` java
+private void sendStripConnectMessage() {
+    final Bundle bundle = new Bundle();
+
+    bundle.putString(“Example”, “Example String”);
+
+    final Message message = Message.obtain();
+
+    message.setData(bundle);
+    sendMessage(message);
+}
+```
+
+- 생성자 선언부 위에는 2줄, 아래에는 1줄의 공백을 넣습니다.
+
+``` java
+private String mName;
+
+
+public Dog(String name) {
+	// …
+}
+
+public void feedDogFood(int amount) {
+	// …
+}
+```
+
+- Inner Class는 파일 최하단에 위치시키고, 위에는 2줄의 공백을 넣습니다.
+- Inner Class끼리는 1줄의 공백을 넣습니다.
+
+``` java
+public void feedDogFood(int amount) {
+	// …
+}
+
+private static class BarkHandler extends Handler {
+
+    final private WeakReference<Dog> mDog;
+
+    public MessageHandler(Dog dog) {
+        mDog = new WeakReference<>(dog);
+    }
+
+    @Override
+    public void handleMessage(Message bark) {
+        final Dog dog = mDog.get();
+        // …
+    }
+}
+
+private static class BiteHandler extends Handler {
+	// …
+}
+```
+
+- 분기문의 분기 사이의 간격은 띄우지 않습니다.
+
+``` java
+public void analysisAction(final DogAction dogAction) {
+        if (bark) {
+	        // …
+        } else if (bite) {
+	        // …
+        } else if (sniff) {
+	        // …
+        }
+        
+        // …
+    }
+```
+
+
 ### 네이밍
 
 #### 변수
-
 - 변수 이름은 lowerCamelCase를 사용합니다.
 - 멤버 변수 이름에 접두사<sup>Prefix</sup> `m` 을 붙입니다.
 - AndroidStudio에서 Preferences를 통해 Getter/Setter 생성 시에도 m이 처리 되도록 구현 할 수있습니다.
@@ -94,7 +183,6 @@ Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합�
 - 단, 클래스가 아닌 단순 저장형식(?)으로 사용할 경우에는 Getter/Setter를 사용하지 않으므로, 접두사<sup>Prefix</sup> `m` 을 붙이지 않는다. 또한 이 경우, 모든 멤버 변수는 `public` 으로 둔다.
 
 #### 상수
-
 - 상수 이름은 ALL_UPPER_CASE를 사용합니다.
 - 각 단어는 underscore `_` 로 분리합니다.
 - 상수 이름은 부가 설명 없이도 코드를 이해할 수 있게 작성해야 합니다.
@@ -124,7 +212,6 @@ day = (3 + numberOfDays) % 7;
 ```
 
 #### 약어
-
 - 약어는 항상 대문자로 표시합니다. (논의 필요)
 
 **좋은 예**
