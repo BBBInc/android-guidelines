@@ -13,6 +13,10 @@
 
 ## 프로젝트 가이드라인
 
+### gitignore
+
+새로운 프로젝트를 시작할 때, 항상 Root 폴더에  **[.gitignore](https://github.com/BBBInc/android-style-guide/blob/master/Downloads/.gitignore)**을 위치시킵니다.
+
 ### 패키지 아키텍쳐
 - activitiy가 하나만 존재할 경우에는 패키지 내의 최상단에 두고, 그 이상은 별도의 activities 패키지에 둔다.
 
