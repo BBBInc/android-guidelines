@@ -15,7 +15,7 @@
 
 ### gitignore
 
-새로운 프로젝트를 시작할 때, 항상 Root 폴더에  **[.gitignore](https://github.com/BBBInc/android-style-guide/blob/master/Downloads/.gitignore)**을 위치시킵니다.
+새로운 프로젝트를 시작할 때, 항상 Root 폴더에  **[.gitignore](https://github.com/BBBInc/android-style-guide/blob/master/Downloads/.gitignore)** 을 위치시킵니다.
 
 ### 패키지 아키텍쳐
 - activitiy가 하나만 존재할 경우에는 패키지 내의 최상단에 두고, 그 이상은 별도의 activities 패키지에 둔다.
@@ -91,6 +91,28 @@ Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합�
 #### Don't use finalizers
 
 ### 코드 레이아웃
+
+#### Class 멤버 순서
+- Android component 관련 메서드들은 해당 component의 lifecycle에 맞춘 순서대로 배치한다.
+- 만약 component 관련 메서드들을 상속해서 사용한다면 파일 내 메서드 중 최 상단에 위치시킨다.
+
+```java
+public class MainActivity extends Activity {
+
+    @Override
+    public void onCreate() {}
+
+    @Override
+    public void onResume() {}
+
+    @Override
+    public void onPause() {}
+
+    @Override
+    public void onDestroy() {}
+
+}
+```
 
 #### Local 변수
 - Local 변수는 메서드 내에서 사용 되기 직전에 선언합니다.
