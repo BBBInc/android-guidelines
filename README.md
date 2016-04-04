@@ -47,7 +47,8 @@ Resource 파일명은 lower_underscore를 사용합니다.
 |Asset Type|Prefix|Example|
 |----------|------|-------|
 |Icons|`ic_`|`ic_launcher.png`|
-|Images|`img`|`img_man_logo`|
+|Images|`img`|`img_main_logo`|
+|Background|`bg`|`bg_main`|
 
 ##### Layout 파일
 Layout 파일명은 관련된 Component로 시작합니다.
@@ -56,6 +57,8 @@ Layout 파일명은 관련된 Component로 시작합니다.
 |---------|------------------|-----------------|
 |Activity|`MainActivity`|`activity_main.xml`|
 |Fragement|`ProgressFragment`|`fragment_progress.xml`|
+|AdapterView item|---|`item_person.xml`|
+|Others|---|`view_login_info`|
 
 ##### Menu 파일
 menu 파일은 menu 폴더 내에 위치하기 때문에 별도의 prefix 없이 사용되는 Component를 앞으로 보냅니다.
@@ -70,7 +73,7 @@ Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합�
 `strings.xml`, `colors.xml`, `dimens.xml`, `ui_colors.xml`
 
 #### Colors
-- `colors.xml`은 색상 Palette  개념이므로, 색상을 제외하고 다른 것이 들어가면 안된다. `colors.xml`에는 Alpha 값이 포함되지 않은 RGB 값으로 정의하며, Alpha값이 필요한 경우에는 사용하는 곳에서 변경하여 사용하도록 한다. 
+- `colors.xml`은 색상 Palette  개념이므로, 색상을 제외하고 다른 것이 들어가면 안된다. `colors.xml`에는 Alpha 값이 포함되지 않은 RGB 값으로 정의하며, Alpha값이 필요한 경우에는 사용하는 곳에서 변경하여 사용하도록 한다.
 - UI 구성요소 별 색상 지정은 별도의 파일인 `ui_colors.xml`을 생성하여 `colors.xml`의 색상을 매핑하여 사용한다.
 
 ## 코드 가이드라인
@@ -166,7 +169,7 @@ public void analysisAction(final DogAction dogAction) {
         } else if (sniff) {
 	        // …
         }
-        
+
         // …
     }
 ```
@@ -212,20 +215,11 @@ day = (3 + numberOfDays) % 7;
 ```
 
 #### 약어
-- 약어는 항상 대문자로 표시합니다. (논의 필요)
+- 약어는 lowerCamelCase를 사용합니다.
 
+|Good|Bad|
+|----|---|
+|userId|userID|
+|urlString|URLString|
+|html|HTML|
 **좋은 예**
-
-```java
-int userID;
-int URLString;
-int HTML;
-```
-
-**나쁜 예**
-
-```java
-int userId;
-int urlString;
-int html;
-```
