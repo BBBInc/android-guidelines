@@ -18,7 +18,7 @@
 새로운 프로젝트를 시작할 때, 항상 Root 폴더에  **[.gitignore](https://github.com/BBBInc/android-style-guide/blob/master/Downloads/.gitignore)** 을 위치시킵니다.
 
 ### 패키지 아키텍쳐
-- activitiy가 하나만 존재할 경우에는 패키지 내의 최상단에 두고, 그 이상은 별도의 activities 패키지에 둔다.
+- activitiy가 하나만 존재할 경우에는 패키지 내의 최상단에 두고, 그 이상은 별도의 activities 패키지에 둡니다.
 
 ```java
 com.bbbtech.project
@@ -77,24 +77,28 @@ Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합�
 `strings.xml`, `colors.xml`, `dimens.xml`, `ui_colors.xml`
 
 #### Colors
-- `colors.xml`은 색상 Palette  개념이므로, 색상을 제외하고 다른 것이 들어가면 안된다. `colors.xml`에는 Alpha 값이 포함되지 않은 RGB 값으로 정의하며, Alpha값이 필요한 경우에는 사용하는 곳에서 변경하여 사용하도록 한다.
-- UI 구성요소 별 색상 지정은 별도의 파일인 `ui_colors.xml`을 생성하여 `colors.xml`의 색상을 매핑하여 사용한다.
+- `colors.xml`은 색상 Palette  개념이므로, 색상을 제외하고 다른 것이 들어가면 안된다. `colors.xml`에는 Alpha 값이 포함되지 않은 RGB 값으로 정의하며, Alpha값이 필요한 경우에는 사용하는 곳에서 변경하여 사용하도록 했습니다.
+- UI 구성요소 별 색상 지정은 별도의 파일인 `ui_colors.xml`을 생성하여 `colors.xml`의 색상을 매핑하여 사용합니다.
 
 ## 코드 가이드라인
 
 ### Java 언어 규칙
+구글의 오픈소스 저장소에 contribute를 할 때 권장되는 사항입니다.
 
 #### Don’t Ignore Exceptions
+모든 Exception들을 예외처리해 주는 것이 권장됩니다. 
 
 #### Don't catch generic exception
+Exception을 예외처리할 때 최대한 구체적인 Exception을 사용해야 합니다. 
 
 #### Don't use finalizers
+Object.finalizer를 사용하지 않습니다. 
 
 ### 코드 레이아웃
 
 #### Class 멤버 순서
-- Android component 관련 메서드들은 해당 component의 lifecycle에 맞춘 순서대로 배치한다.
-- 만약 component 관련 메서드들을 상속해서 사용한다면 파일 내 메서드 중 최 상단에 위치시킨다.
+- Android component 관련 메서드들은 해당 component의 lifecycle에 맞춘 순서대로 배치합니다.
+- 만약 component 관련 메서드들을 상속해서 사용한다면 파일 내 메서드 중 최 상단에 위치시킵니다.
 
 ```java
 public class MainActivity extends Activity {
@@ -209,7 +213,7 @@ public void analysisAction(final DogAction dogAction) {
 - AndroidStudio에서 Preferences를 통해 Getter/Setter 생성 시에도 m이 처리 되도록 구현 할 수있습니다.
 ![Image of HowToSetPrefix](https://github.com/BBBInc/android-style-guide/blob/master/Screenshots/howToSetFieldPrefix.png)
 
-- 단, 클래스가 아닌 단순 저장형식(?)으로 사용할 경우에는 Getter/Setter를 사용하지 않으므로, 접두사<sup>Prefix</sup> `m` 을 붙이지 않는다. 또한 이 경우, 모든 멤버 변수는 `public` 으로 둔다.
+- 단, 클래스가 아닌 단순 저장형식(?)으로 사용할 경우에는 Getter/Setter를 사용하지 않으므로, 접두사<sup>Prefix</sup> `m` 을 붙이지 않는다. 또한 이 경우, 모든 멤버 변수는 `public` 으로 둡니다.
 
 #### 상수
 - 상수 이름은 ALL_UPPER_CASE를 사용합니다.
