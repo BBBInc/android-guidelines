@@ -22,24 +22,23 @@
 
 ```java
 com.bbbtech.project
-├─ app
-|  └─ BaseApplication.java
 ├─ database
 ├─ di
 ├─ features
-|  ├─ feature_a
-|  ├─ feature_b
-|  └─ shared
-|     ├─ adapters
-|     ├─ managers
-|     └─ views
-|        ├─ actionbar
-|        ├─ activities
-|        ├─ fragments
-|        ├─ widgets
-|        └─ notifications
+│  ├─ feature_a
+│  ├─ feature_b
+│  └─ shared
+│     ├─ adapters
+│     ├─ managers
+│     └─ views
+│        ├─ actionbar
+│        ├─ activities
+│        ├─ fragments
+│        ├─ widgets
+│        └─ notifications
 ├─ network
-└─ utils
+├─ utils
+└─ BaseApplication.java
 ```
 
 ### gitignore
