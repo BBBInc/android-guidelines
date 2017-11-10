@@ -4,7 +4,7 @@
 
 ## 목차
 - [프로젝트 가이드라인](#프로젝트-가이드라인)
-  - 프로젝트 구조
+  - [프로젝트 구조](#프로젝트-구조)
   - [파일 네이밍](#파일-네이밍)
 - [코드 가이드라인](#코드-가이드라인)
   - [Java 스타일 규칙](#코드-레이아웃)
@@ -14,27 +14,38 @@
 
 ## 프로젝트 가이드라인
 
+### 프로젝트 구조
+
+#### 패키지 아키텍쳐
+- 패키지는 [`package by features`](https://hackernoon.com/package-by-features-not-layers-2d076df1964d) 로 구성합니다.
+- 공유 요소들은 `shared` 패키지 아래 위치시키고, `component` 별로 구분하여 정리합니다.
+
+```java
+com.bbbtech.project
+├─ app
+|  └─ BaseApplication.java
+├─ database
+├─ di
+├─ features
+|  ├─ feature_a
+|  ├─ feature_b
+|  └─ shared
+|     ├─ adapters
+|     ├─ managers
+|     └─ views
+|        ├─ actionbar
+|        ├─ activities
+|        ├─ fragments
+|        ├─ widgets
+|        └─ notifications
+├─ network
+└─ utils
+```
+
 ### gitignore
 
 새로운 프로젝트를 시작할 때, 항상 Root 폴더에  **[.gitignore](https://github.com/BBBInc/android-style-guide/blob/master/Downloads/.gitignore)** 을 위치시킵니다.
 
-### 패키지 아키텍쳐
-- activitiy가 하나만 존재할 경우에는 패키지 내의 최상단에 두고, 그 이상은 별도의 activities 패키지에 둡니다.
-
-```java
-com.bbbtech.project
-├─ activities
-├─ network
-├─ models
-├─ managers
-├─ utils
-├─ fragments
-└─ views
-   ├─ adapters
-   ├─ actionbar
-   ├─ widgets
-   └─ notifications
-```
 
 ### 파일 네이밍
 
