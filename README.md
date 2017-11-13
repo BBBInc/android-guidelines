@@ -2,6 +2,7 @@
 본 문서는 BBB Inc 구성원들의 Android 협업을 쉽고 명확하게 진행하기 위한 스타일 가이드입니다. 구성원들의 의사결정에 따라 수시로 변경될 수 있습니다.
 
 
+
 ## 목차
 - [프로젝트 가이드라인](#프로젝트-가이드라인)
   - [프로젝트 시작](#프로젝트-시작)
@@ -11,6 +12,7 @@
   - [Java 스타일 규칙](#코드-레이아웃)
   - XML 스타일 규칙
   - Test 스타일 규칙
+
 
 
 ## 프로젝트 가이드라인
@@ -50,6 +52,7 @@ com.bbbtech.project
 └─ BaseApplication.java
 ```
 
+
 ### 파일 네이밍
 
 #### 클래스 파일
@@ -62,12 +65,22 @@ com.bbbtech.project
 Resource 파일명은 lower_underscore를 사용합니다.
 
 ##### Drawable 파일
+drawables의 경우 Root element의 이름으로 시작합니다.
+
+|Asset Type|Prefix|Example|
+|----------|------|-------|
+|shape|`shape_`|`shape_oval_white.xml`|
+|ripple|`ripple_`|`ripple_btn_login.xml`|
+|selector|`selector_`|`selector_item_checkbox.xml`|
+|layer-list|`layer_`|`layer_base_progress.xml`|
+
+이미지 파일은 그림 기호의 경우에만 Icon으로 간주하고 `ic`로 시작합니다. View의 배경으로 사용될 경우에는 `bg`, 그 외는 `img`로 시작합니다.
 
 |Asset Type|Prefix|Example|
 |----------|------|-------|
 |Icons|`ic_`|`ic_launcher.png`|
-|Images|`img`|`img_main_logo`|
-|Background|`bg`|`bg_main`|
+|Images|`img_`|`img_main_logo`|
+|Background|`bg_`|`bg_main`|
 
 ##### Layout 파일
 Layout 파일명은 관련된 Component로 시작합니다.
@@ -91,9 +104,7 @@ Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합�
 
 `strings.xml`, `colors.xml`, `dimens.xml`, `ui_colors.xml`
 
-#### Colors
-- `colors.xml`은 색상 Palette  개념이므로, 색상을 제외하고 다른 것이 들어가면 안된다. `colors.xml`에는 Alpha 값이 포함되지 않은 RGB 값으로 정의하며, Alpha값이 필요한 경우에는 사용하는 곳에서 변경하여 사용하도록 했습니다.
-- UI 구성요소 별 색상 지정은 별도의 파일인 `ui_colors.xml`을 생성하여 `colors.xml`의 색상을 매핑하여 사용합니다.
+
 
 ## 코드 가이드라인
 
@@ -268,3 +279,7 @@ day = (3 + numberOfDays) % 7;
 |urlString|URLString|
 |html|HTML|
 **좋은 예**
+
+#### Colors
+- `colors.xml`은 색상 Palette  개념이므로, 색상을 제외하고 다른 것이 들어가면 안된다. `colors.xml`에는 Alpha 값이 포함되지 않은 RGB 값으로 정의하며, Alpha값이 필요한 경우에는 사용하는 곳에서 변경하여 사용하도록 했습니다.
+- UI 구성요소 별 색상 지정은 별도의 파일인 `ui_colors.xml`을 생성하여 `colors.xml`의 색상을 매핑하여 사용합니다.
