@@ -5,6 +5,7 @@
 
 ## 목차
 - [프로젝트 가이드라인](#프로젝트-가이드라인)
+  - [프로젝트 시작](#프로젝트-시작)
   - [프로젝트 구조](#프로젝트-구조)
   - [파일 네이밍](#파일-네이밍)
 - [코드 가이드라인](#코드-가이드라인)
@@ -15,6 +16,13 @@
 
 
 ## 프로젝트 가이드라인
+
+
+### 프로젝트 시작
+
+#### gitignore
+
+새로운 프로젝트를 시작할 때, 항상 Root 폴더에  **[.gitignore](https://github.com/BBBInc/android-style-guide/blob/master/Downloads/.gitignore)** 을 위치시킵니다.
 
 
 ### 프로젝트 구조
@@ -43,11 +51,6 @@ com.bbbtech.project
 ├─ utils
 └─ BaseApplication.java
 ```
-
-
-### gitignore
-
-새로운 프로젝트를 시작할 때, 항상 Root 폴더에  **[.gitignore](https://github.com/BBBInc/android-style-guide/blob/master/Downloads/.gitignore)** 을 위치시킵니다.
 
 
 ### 파일 네이밍
