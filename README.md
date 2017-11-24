@@ -108,38 +108,80 @@ Values 폴더 내에 위치한 리소스 파일명은 복수형으로 사용합�
 
 ## 코드 가이드라인
 
-### Java 언어 규칙
-구글의 오픈소스 저장소에 contribute를 할 때 권장되는 사항입니다.
-
-#### Don’t Ignore Exceptions
-모든 Exception들을 예외처리해 주는 것이 권장됩니다. 
-
-#### Don't catch generic exception
-Exception을 예외처리할 때 최대한 구체적인 Exception을 사용해야 합니다. 
-
-#### Don't use finalizers
-Object.finalizer를 사용하지 않습니다. 
 
 ### 코드 레이아웃
 
-#### Class 멤버 순서
-- Android component 관련 메서드들은 해당 component의 lifecycle에 맞춘 순서대로 배치합니다.
-- 만약 component 관련 메서드들을 상속해서 사용한다면 파일 내 메서드 중 최 상단에 위치시킵니다.
+#### 메서드 순서
+- Android component를 `@Override` 하는 메서드들은 해당 component의 lifecycle에 맞춘 순서대로 배치합니다.
+- lifecycle 이외의 메서드들을 `@Override` 할 경우 lifecyle 메서드 다음 순서로 위치시킵니다.
+- 메서드를 `@Override` 하여 사용할 필요가 없는 경우엔 생략합니다.
 
+[Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle.html#alc)
 ```java
 public class MainActivity extends Activity {
 
     @Override
     public void onCreate() {}
+   
+    @Override
+    public void onStart() {}
 
     @Override
     public void onResume() {}
 
     @Override
     public void onPause() {}
+    
+    @Override
+    public void onStop() {}
 
     @Override
     public void onDestroy() {}
+    
+    @Override
+    public void OnActivityResult() {}
+    
+    ...
+    
+}
+```
+
+[Fragment Lifecycle](https://developer.android.com/guide/components/fragments.html#Creating)
+```java
+public class MainActivity extends Activity {
+
+    @Override
+    public void onAttach() {}
+
+    @Override
+    public void onCreate() {}
+    
+    @Override
+    public void onCreateView() {}
+   
+    @Override
+    public void onActivityCreated() {}
+    
+    @Override
+    public void onStart() {}
+
+    @Override
+    public void onResume() {}
+
+    @Override
+    public void onPause() {}
+    
+    @Override
+    public void onStop() {}
+    
+    @Override
+    public void onDestroyView() {}
+
+    @Override
+    public void onDestroy() {}
+    
+    @Override
+    public void onDetach() {}
 
 }
 ```
