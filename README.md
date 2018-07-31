@@ -148,7 +148,7 @@ public class MainActivity extends Activity {
 
 [Fragment Lifecycle](https://developer.android.com/guide/components/fragments.html#Creating)
 ```java
-public class MainActivity extends Activity {
+public class MainFragment extends Fragment {
 
     @Override
     public void onAttach() {}
@@ -272,16 +272,47 @@ public void analysisAction(final DogAction dogAction) {
     }
 ```
 
+#### 괄호 공백
+``` java
+class MyClass {
+    int func() {
+        if (something) {
+            // ....
+        } else if (something) {
+            // ....
+        } else {
+            // ....
+        }
+    }
+}
+```
+- 괄호 앞 공백 1칸
+- 조건문이 이어진다면 닫는괄호 뒤 공백 1칸
+- 마지막 닫는괄호에는 공백 없음
+
+#### 주석
+``` java
+/**
+ * 두개의 int형 숫자를 입력받아 두 수의 합을 반환하는 함수.
+ */
+int sum(int num1, int num2) {
+    return num1 + num2;
+}
+```
+- Android component를 `@Override` 하는 메서드들을 제외한 나머지 함수들에 대하여 해당 함수가 어떤 역할을 하는지 간략하게 주석을 통해 설명합니다.
+- 주석 형태는 javaDoc 형식을 따릅니다.
 
 ### 네이밍
 
 #### 변수
 - 변수 이름은 lowerCamelCase를 사용합니다.
-- 멤버 변수 이름에 접두사<sup>Prefix</sup> `m` 을 붙입니다.
-- AndroidStudio에서 Preferences를 통해 Getter/Setter 생성 시에도 m이 처리 되도록 구현 할 수있습니다.
-![Image of HowToSetPrefix](https://github.com/BBBInc/android-style-guide/blob/master/Screenshots/howToSetFieldPrefix.png)
+- 안드로이드 컴포넌트와 관련된 변수 앞에는 컴포넌트의 약자를 접두사로 붙입니다.
+> - TextView -> tvName
+> - ImageView -> ivProfile
+> - EditText -> etNickname
+> - ...
+- 멤버 변수 이름에 접두사를 **사용하지 않습니다.**
 
-- 단, 클래스가 아닌 단순 저장형식(?)으로 사용할 경우에는 Getter/Setter를 사용하지 않으므로, 접두사<sup>Prefix</sup> `m` 을 붙이지 않는다. 또한 이 경우, 모든 멤버 변수는 `public` 으로 둡니다.
 
 #### 상수
 - 상수 이름은 ALL_UPPER_CASE를 사용합니다.
